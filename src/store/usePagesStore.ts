@@ -1,26 +1,6 @@
 import { create } from "zustand"
 import { v4 as uuid } from "uuid"
-
-type Rotation = 0 | 90 | 180 | 270
-
-type Page = {
-  id: string
-  file: File
-  objectUrl: string
-  rotation: Rotation
-  name: string
-  size: number
-  thumbnail:string
-}
-
-type PagesStore = {
-  pages: Page[]
-  addPages: (files: File[], thumbnails:string[]) => void
-  rotatePage: (id: string) => void
-  deletePage: (id: string) => void
-  reOrderPages: (fromIndex: number, toIndex: number) => void
-  clearAll: () => void
-}
+import type { Page, PagesStore, Rotation } from "@/types/types" 
 
 function moveTo(array: Page[], fromIndex: number, toIndex: number): Page[] {
   const newArray = [...array]
