@@ -32,8 +32,10 @@ function useImageUpload() {
       toast.success(
         `${validatedFiles.length} image${validatedFiles.length > 1 ? "s" : ""} added successfully`
       )
-    } catch (error: unknown) {
-      toast.error("Something went wrong while processing images")
+    } catch (err: unknown) {
+      const message =
+        err instanceof Error ? err.message : "Image  processing failed"
+      toast.error(`${message} — please try again`)
     } finally {
       setIsProcessing(false)
     }
