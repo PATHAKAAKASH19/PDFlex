@@ -9,11 +9,14 @@ import {
 } from "@/components/ui/empty"
 import { IconCloud } from "@tabler/icons-react"
 import useImageUpload from "@/hooks/useImageUpload"
-import useDropzone from "react-dropzone"
+import { useDropzone } from "react-dropzone"
+import usePagesStore from "@/store/usePagesStore"
 
 export default function EmptyState() {
   const { onDrop, isProcessing } = useImageUpload()
-  const {} = useDropzone({
+  const pages = usePagesStore((state) => state.pages)
+  
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
       "image/jpeg": [".jpg", ".jpeg"],
@@ -21,10 +24,14 @@ export default function EmptyState() {
       "image/webp": [".webp"],
     },
     multiple: true,
+    disabled: isProcessing,
+  
   })
 
+    
+    
   return (
-    <Empty className="h-full w-full border border-dashed">
+    <Empty className="h-full w-full border border-dashed" {...getRootProps()}>
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <IconCloud />
@@ -36,6 +43,7 @@ export default function EmptyState() {
       </EmptyHeader>
       <EmptyContent>
         <Button variant="outline" size="sm">
+          <input type="file" {...getInputProps()}></input>
           Upload Files
         </Button>
       </EmptyContent>
