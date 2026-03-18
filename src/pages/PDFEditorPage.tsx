@@ -1,23 +1,17 @@
-import React from "react"
 import EmptyState from "@/components/editor/EmptyState"
-import usePagesStore from "@/store/usePagesStore"
+import EditorHeader from "@/components/editor/EditorHeader"
+import PageGrid from "@/components/editor/PageGrid"
 
 export default function PDFEditorPage() {
-  const pages = usePagesStore((state) => state.pages)
-  return (
-    <div className="h-dvh w-full">
-      <EmptyState></EmptyState>
-      <h2>Akash</h2>
 
-      {pages.length > 0 ? (
-        pages.map((page) => (
-          <div id={page.id}>
-            <img src={`${page.thumbnail}`} alt="" />
-          </div>
-        ))
-      ) : (
-        <div>empty</div>
-      )}
+  return (
+    <div className="w-full flex flex-col">
+
+      <EditorHeader></EditorHeader>
+      <div className="h-fit w-full">
+        <EmptyState></EmptyState>
+      </div>
+      <PageGrid></PageGrid>
     </div>
   )
 }

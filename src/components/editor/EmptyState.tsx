@@ -10,11 +10,11 @@ import {
 import { IconCloud } from "@tabler/icons-react"
 import useImageUpload from "@/hooks/useImageUpload"
 import { useDropzone } from "react-dropzone"
-import usePagesStore from "@/store/usePagesStore"
+
 
 export default function EmptyState() {
   const { onDrop, isProcessing } = useImageUpload()
-  const pages = usePagesStore((state) => state.pages)
+
   
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -25,7 +25,7 @@ export default function EmptyState() {
     },
     multiple: true,
     disabled: isProcessing,
-  
+   
   })
 
     
