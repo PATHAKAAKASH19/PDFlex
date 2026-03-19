@@ -31,18 +31,18 @@ export default function EmptyState() {
     
     
   return (
-    <Empty className="h-full w-full border border-dashed" {...getRootProps()}>
+    <Empty className="h-88 w-7xl  border-dashed border-4 bg-white " {...getRootProps()}>
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <IconCloud />
         </EmptyMedia>
-        <EmptyTitle>Cloud Storage Empty</EmptyTitle>
+        <EmptyTitle>Upload File</EmptyTitle>
         <EmptyDescription>
-          Upload files to your cloud storage to access them anywhere.
+          PNG, JPG, PDF up to 10MB
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <Button variant="outline" size="sm">
+        <Button  size="lg">
           <input type="file" {...getInputProps()}></input>
           Upload Files
         </Button>

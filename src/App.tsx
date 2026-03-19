@@ -10,7 +10,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
+    <div className="flex min-h-svh">
       <BrowserRouter>
         <Suspense fallback={<LoadingPage/>}>
           <Routes>

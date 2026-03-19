@@ -3,14 +3,29 @@ import { DragDropProvider } from "@dnd-kit/react"
 import { isSortable } from "@dnd-kit/react/sortable"
 import { Button } from "../ui/button"
 import PageCard from "./PageCard"
+import usePdfExports from "@/hooks/usePdfExport"
+import ProgressBar from "./ProgressBar"
 
 export default function PageGrid() {
-  const { pages, deletePage, reOrderPages, rotatePage, clearAll } = usePageManager()
+  const { pages, deletePage, reOrderPages, rotatePage, clearAll } =
+    usePageManager()
+
+  const { error, progress, isExporting, exportPdf } = usePdfExports()
 
   return (
     <>
-       { pages.length >0&&<Button onClick={clearAll}>Clear All</Button>}
-      <div className='gap-4" grid grid-cols-6'>
+      {pages.length > 0 && (
+        <div className="my-5 flex flex-wrap gap-3">
+          <Button onClick={clearAll} variant="outline">
+            Clear All
+          </Button>
+          <Button onClick={exportPdf}>Generate PDF</Button>
+        </div>
+      )}
+
+      {isExporting && <ProgressBar progress={progress} />}
+
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
         <DragDropProvider
           onDragEnd={(event) => {
             if (event.canceled) return
@@ -38,6 +53,12 @@ export default function PageGrid() {
             ))}
         </DragDropProvider>
       </div>
+
+      {pages.length === 0 && (
+        <div className="py-12 text-center text-gray-500">
+          No pages added yet. Upload images to get started.
+        </div>
+      )}
     </>
   )
 }
