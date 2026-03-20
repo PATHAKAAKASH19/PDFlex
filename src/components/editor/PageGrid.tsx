@@ -25,7 +25,7 @@ export default function PageGrid() {
 
       {isExporting && <ProgressBar progress={progress} />}
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6">
         <DragDropProvider
           onDragEnd={(event) => {
             if (event.canceled) return
@@ -54,11 +54,7 @@ export default function PageGrid() {
         </DragDropProvider>
       </div>
 
-      {pages.length === 0 && (
-        <div className="py-12 text-center text-gray-500">
-          No pages added yet. Upload images to get started.
-        </div>
-      )}
+     
     </>
   )
 }

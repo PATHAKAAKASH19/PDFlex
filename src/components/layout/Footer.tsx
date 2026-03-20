@@ -3,7 +3,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="w-7xl rounded-2xl border-t border-gray-200 bg-white">
+    <footer className="w-7xl rounded-2xl border-t border-gray-200 bg-white ">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           <div className="col-span-1 md:col-span-1">

@@ -5,7 +5,7 @@ export default function EditorHeader() {
       <header className="z-50 w-7xl rounded-full   border-white/30 bg-white px-5 py-2.5 shadow-lg backdrop-blur-lg backdrop-saturate-150">
         <div className="flex items-center justify-start gap-4">
           <div className="h-11.5 w-11.5 rounded-full">
-            {" "}
+            
             <img
               src="logo1.svg"
               alt="brand-logo"
