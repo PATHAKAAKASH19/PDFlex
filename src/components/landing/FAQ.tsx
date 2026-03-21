@@ -4,14 +4,20 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { motion } from "motion/react"
 
 export function FAQ() {
     return (
-      <div className="flex w-full flex-col items-center justify-center gap-9 rounded-2xl bg-white py-5">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex w-full flex-col items-center justify-center gap-9 rounded-2xl bg-white py-5 dark:bg-[#17151c]"
+      >
         <h1 className="text-3xl">Frequentely Asked Questions</h1>
         <Accordion defaultValue={["shipping"]} className="max-w-4xl">
           <AccordionItem value="shipping">
-            <AccordionTrigger className="text-[20px] text-black">
+            <AccordionTrigger className="text-[20px]">
               What are your shipping options?
             </AccordionTrigger>
             <AccordionContent className="text-[16px]">
@@ -37,8 +43,35 @@ export function FAQ() {
               hours during business days.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="support">
+            <AccordionTrigger className="text-[20px]">
+              How can I contact customer support?
+            </AccordionTrigger>
+            <AccordionContent className="text-[16px]">
+              Reach us via email, live chat, or phone. We respond within 24
+              hours during business days.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="support">
+            <AccordionTrigger className="text-[20px]">
+              How can I contact customer support?
+            </AccordionTrigger>
+            <AccordionContent className="text-[16px]">
+              Reach us via email, live chat, or phone. We respond within 24
+              hours during business days.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="support">
+            <AccordionTrigger className="text-[20px]">
+              How can I contact customer support?
+            </AccordionTrigger>
+            <AccordionContent className="text-[16px]">
+              Reach us via email, live chat, or phone. We respond within 24
+              hours during business days.
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
-      </div>
+      </motion.div>
     )
 }
 
